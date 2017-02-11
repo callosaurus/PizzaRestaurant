@@ -7,46 +7,56 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Pizza.h"
 #import "Kitchen.h"
+#import "InputHandler.h"
+#import "RegularManager.h"
+#import "CheeryManager.h"
 
 int main(int argc, const char * argv[])
 {
     
     @autoreleasepool {
         
-        NSLog(@"Please pick your pizza size (small, medium, or large) and any number of toppings:");
+        NSLog(@"PIZZA TIME");
+        
         
         Kitchen *restaurantKitchen = [Kitchen new];
+        CheeryManager *cheeryManager = [CheeryManager new];
+        RegularManager *regularManager = [RegularManager new];
         
         while (TRUE) {
             // Loop forever
             
-            
-            //Get user input
-            NSLog(@"> ");
-            char str[100];
-            fgets (str, 100, stdin);
-            NSString *inputString = [[NSString alloc] initWithUTF8String:str];
-            inputString = [inputString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            
-            NSLog(@"Input was %@", inputString);
-            
-            //Parse user input
-            NSArray *commandWords = [inputString componentsSeparatedByString:@" "];
-            NSArray *toppings = [commandWords subarrayWithRange:NSMakeRange(1,[commandWords count]-1)];
-            
-            
-            // Make-a-da-pizza! Call with enum, is logged with plaintext in Kitchen.m switch case
-            if ([[commandWords objectAtIndex:0] isEqualToString:@"small"]) {
-                [restaurantKitchen makePizzaWithSize:Small toppings:toppings];
-            } else if ([[commandWords objectAtIndex:0] isEqualToString:@"medium"]) {
-                [restaurantKitchen makePizzaWithSize: Medium toppings:toppings];
-            } else if ([[commandWords objectAtIndex:0] isEqualToString:@"large"]) {
-                [restaurantKitchen makePizzaWithSize: Large toppings:toppings];
+            //Get user manager preference
+            NSLog(@"Do you deal with the cheery manager or regular manager?\n>");
+            InputHandler *managerPreference = [InputHandler new];
+            NSString *userManagerChoice = [managerPreference getUserInput];
+            if ([userManagerChoice isEqualToString:@"cheery"]) {
+                restaurantKitchen.delegate = cheeryManager;
+            } else if ([userManagerChoice isEqualToString:@"regular"]) {
+                restaurantKitchen.delegate = regularManager;
             } else {
-                NSLog(@"please enter small, medium, or large");
+                NSLog(@"Please pick either 'cheery' or 'regular'...");
+                break;
             }
+            
+            NSLog(@"Please input your pizza size (small, medium, or large), then any number of toppings");
+            InputHandler *inputString = [InputHandler new];
+          
+            NSArray *commandWords = [[inputString getUserInput] componentsSeparatedByString:@" "];
+            NSArray *toppings = [commandWords subarrayWithRange:NSMakeRange(1,[commandWords count]-1)];
+            PizzaSize size = [Pizza sizeSelector:commandWords[0]];
+            
+            Pizza *newPizza = [restaurantKitchen makePizzaWithSize:size toppings:toppings];
+            
+            if (newPizza) {
+                NSLog(@"You got a %@ %@ pizza!", [newPizza sizeToString:newPizza.size], toppings);
+            } else {
+                NSLog(@"The regular manager doesn't make pizzas with anchovies");
+            }
+            
+            break;
         }
     }
     return 0;

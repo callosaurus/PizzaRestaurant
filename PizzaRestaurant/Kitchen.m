@@ -13,26 +13,33 @@
 
 - (Pizza *)makePizzaWithSize:(PizzaSize)size toppings:(NSArray *)toppings
 {
-    Pizza *pizza = [[Pizza alloc] init];
-    pizza.size = size;
-    pizza.toppings = toppings;
     
-    //convert call with enum back to proper size
-    switch (size) {
-    case Small:
-        NSLog(@"Pizza made with size: small, and the following toppings: %@", pizza.toppings);
-        break;
-    case Medium:
-        NSLog(@"Pizza made with size: medium, and the following toppings: %@", pizza.toppings);
-        break;
-    case Large:
-        NSLog(@"Pizza made with size: large, and the following toppings: %@", pizza.toppings);
-        break;
-    default:
-        NSLog(@"That's not a proper pizza size!");
+    SEL didMake = @selector(kitchenDidMakePizza:);
+    
+    Pizza *pizza = nil;
+    
+    //if there is a delegate in the first place do this
+    if (self.delegate) {
+        
+        //check anchovy-hater manager doesn't veto pizza first
+        if ([self.delegate kitchen:self shouldMakePizzaOfSize:size andToppings:toppings]) {
+            
+            pizza = [[Pizza alloc] initWithSize:size andWithToppings:toppings];
+            
+            //check cheery manager doesn't upgrade pizza first
+            if ([self.delegate kitchenShouldUpgradeOrder:self]) {
+                
+                pizza = [[Pizza alloc] initWithSize:Large andWithToppings:toppings];
+                
+            }
+            
+            //check if manager can respond to didMake
+            if ([self.delegate respondsToSelector:didMake]) {
+                [self.delegate kitchenDidMakePizza:pizza];
+            }
+        }
     }
     
-
     return pizza;
 }
 
