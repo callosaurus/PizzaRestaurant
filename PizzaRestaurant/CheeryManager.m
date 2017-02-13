@@ -24,9 +24,8 @@
 
 -(void)kitchenDidMakePizza:(Pizza *)pizza
 {
-    
-    NSLog(@"Cheery manager likes you enough to upgrade your pizza to a large");
-    
+    [_deliveryService deliverPizza:pizza];
+    NSLog(@"Cheery manager likes you enough to upgrade your pizza to a large!");
 }
 
 @end

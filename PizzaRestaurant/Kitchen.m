@@ -8,6 +8,7 @@
 
 #import "Kitchen.h"
 #import "Pizza.h"
+#import "DeliveryService.h"
 
 @implementation Kitchen
 
@@ -18,7 +19,6 @@
     
     Pizza *pizza = nil;
     
-    //if there is a delegate in the first place do this
     if (self.delegate) {
         
         //check anchovy-hater manager doesn't veto pizza first

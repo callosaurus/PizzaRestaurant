@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Kitchen.h"
+#import "DeliveryService.h"
 
 @interface CheeryManager : NSObject <KitchenDelegate>
 
+@property DeliveryService *deliveryService;
+
 -(BOOL)kitchen:(Kitchen *)kitchen shouldMakePizzaOfSize:(PizzaSize)size andToppings:(NSArray *)toppings;
--(BOOL)kitchenShouldUpgradeOrder:(Kitchen *)kitchen;
+-(BOOL)kitchenShouldUpgradeOrder:(Kitchen *)kitchen ;
 
 @end

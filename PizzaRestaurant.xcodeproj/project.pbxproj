@@ -11,6 +11,8 @@
 		3FCDDED11E4EA0040073C1D1 /* InputHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDDED01E4EA0040073C1D1 /* InputHandler.m */; };
 		3FCDDED41E4EA24B0073C1D1 /* RegularManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDDED31E4EA24B0073C1D1 /* RegularManager.m */; };
 		3FCDDED71E4EA2570073C1D1 /* CheeryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDDED61E4EA2570073C1D1 /* CheeryManager.m */; };
+		3FCDDEF11E4FB8B30073C1D1 /* DeliveryService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDDEF01E4FB8B30073C1D1 /* DeliveryService.m */; };
+		3FCDDEF41E4FB8BA0073C1D1 /* DeliveryCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDDEF31E4FB8BA0073C1D1 /* DeliveryCar.m */; };
 		6001EC81197B4EC300F97011 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6001EC80197B4EC300F97011 /* Foundation.framework */; };
 		6001EC84197B4EC300F97011 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC83197B4EC300F97011 /* main.m */; };
 		6001EC90197B502F00F97011 /* Kitchen.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC8F197B502F00F97011 /* Kitchen.m */; };
@@ -38,6 +40,10 @@
 		3FCDDED31E4EA24B0073C1D1 /* RegularManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularManager.m; sourceTree = "<group>"; };
 		3FCDDED51E4EA2570073C1D1 /* CheeryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheeryManager.h; sourceTree = "<group>"; };
 		3FCDDED61E4EA2570073C1D1 /* CheeryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheeryManager.m; sourceTree = "<group>"; };
+		3FCDDEEF1E4FB8B30073C1D1 /* DeliveryService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryService.h; sourceTree = "<group>"; };
+		3FCDDEF01E4FB8B30073C1D1 /* DeliveryService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryService.m; sourceTree = "<group>"; };
+		3FCDDEF21E4FB8BA0073C1D1 /* DeliveryCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryCar.h; sourceTree = "<group>"; };
+		3FCDDEF31E4FB8BA0073C1D1 /* DeliveryCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryCar.m; sourceTree = "<group>"; };
 		6001EC7D197B4EC300F97011 /* PizzaRestaurant */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PizzaRestaurant; sourceTree = BUILT_PRODUCTS_DIR; };
 		6001EC80197B4EC300F97011 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6001EC83197B4EC300F97011 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -87,6 +93,10 @@
 			isa = PBXGroup;
 			children = (
 				6001EC83197B4EC300F97011 /* main.m */,
+				3FCDDEEF1E4FB8B30073C1D1 /* DeliveryService.h */,
+				3FCDDEF01E4FB8B30073C1D1 /* DeliveryService.m */,
+				3FCDDEF21E4FB8BA0073C1D1 /* DeliveryCar.h */,
+				3FCDDEF31E4FB8BA0073C1D1 /* DeliveryCar.m */,
 				3FCDDED21E4EA24B0073C1D1 /* RegularManager.h */,
 				3FCDDED31E4EA24B0073C1D1 /* RegularManager.m */,
 				3FCDDED51E4EA2570073C1D1 /* CheeryManager.h */,
@@ -164,7 +174,9 @@
 			files = (
 				3F786A091E4D3E7000EED0C0 /* Pizza.m in Sources */,
 				6001EC90197B502F00F97011 /* Kitchen.m in Sources */,
+				3FCDDEF41E4FB8BA0073C1D1 /* DeliveryCar.m in Sources */,
 				6001EC84197B4EC300F97011 /* main.m in Sources */,
+				3FCDDEF11E4FB8B30073C1D1 /* DeliveryService.m in Sources */,
 				3FCDDED71E4EA2570073C1D1 /* CheeryManager.m in Sources */,
 				3FCDDED11E4EA0040073C1D1 /* InputHandler.m in Sources */,
 				3FCDDED41E4EA24B0073C1D1 /* RegularManager.m in Sources */,

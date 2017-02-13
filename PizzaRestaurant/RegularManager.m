@@ -27,4 +27,11 @@
     return NO;
 }
 
+-(void)kitchenDidMakePizza:(Pizza *)pizza
+{
+    
+    [_deliveryService deliverPizza:pizza];
+    NSLog(@"Regular manager says 'thankyou, come again'");
+}
+
 @end
